@@ -5,3 +5,5 @@ I did this project a year ago. That day I've realized that time is important and
 This project includes some background images as well, also it includes a python script to switch between images.
 
 You can clone this repo, set your age inside of an html page and use it on your own.
+
+[Link to hosted page](https://cebem1nt.github.io/lifetime-counter/page.html)
