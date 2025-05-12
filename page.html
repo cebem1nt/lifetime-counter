@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/background.css">
+    <title>My lifetime</title>
+    <style>
+        body {
+            /* font-family: "Jacquard 24", system-ui; */
+            /* font-family: "Great Vibes", cursive; */
+            font-family: "Lato", sans-serif;
+            color: mintcream;
+            font-weight: 700;
+            user-select: none;
+        }
+        
+        .inner{
+            display: flex;
+            justify-content: center;
+            margin-top: 2%;
+        }
+
+        .inner output {
+            background-color: rgba(6, 21, 9, 0.566);
+            padding: 0.8vh;
+            border-radius: 1vh;
+            font-size: large;
+            text-align: center;
+            letter-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="inner">
+        <output>0000000000000000</output>
+    </div>
+    <script>
+        const output = document.querySelector('output'),
+              myBirthDate = new Date(2008, 8 , 18 , 14, 45, 31)
+
+        setInterval(() => {
+            const myAge = new Date(new Date() - myBirthDate)
+            const data = [String(myAge.getUTCFullYear() - 1970), String(myAge.getUTCMonth()), String(myAge.getUTCDate() - 1), String(myAge.getUTCHours()), String(myAge.getUTCMinutes()), String(myAge.getUTCSeconds()), String(myAge.getUTCMilliseconds())]
+            const eT = {
+                ye: data[0],
+                mo: data[1].length == 1 ? '0' + data[1] : data[1],
+                da: data[2].length == 1 ? '0' + data[2] : data[2],
+                ho: data[3].length == 1 ? '0' + data[3] : data[3],
+                mi: data[4].length == 1 ? '0' + data[4] : data[4],
+                se: data[5].length == 1 ? '0' + data[5] : data[5],
+                ms: data[6]
+            }
+            if (eT.ms.length == 2){
+                eT.ms = '0' + eT.ms
+            }
+            if (eT.ms.length == 1){
+                eT.ms = '00' + eT.ms
+            }
+            output.innerHTML = `${eT.ye}.${eT.mo}${eT.da}${eT.ho}${eT.mi}${eT.se}${eT.ms}`
+        }, 1)
+    </script>
+</body>
+</html>
